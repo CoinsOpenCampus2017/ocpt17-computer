@@ -5,8 +5,5 @@ package.json
 node_modules/
 ~/
 ~/.config/fish/fish_history
-<<<<<<< HEAD
 ~/.config/fish/fish_history
-=======
 *~
->>>>>>> refs/remotes/origin/master
