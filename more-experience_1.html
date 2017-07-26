@@ -6,6 +6,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="style/main.css" rel="stylesheet">
+    <link rel="stylesheet" href="style/highlite.css">
+    <script src="scripts/highlite.js"></script>
+    <script src="scripts/highlite-number.js"></script>
+
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.11/semantic.min.css">
@@ -92,9 +96,111 @@
                                 </div>
                             </a>
                         </div>
+                        <h3 class="ui header">複雑なプログラミング</h3>
                         <p>
-                            ここまでの内容が余裕だという方は、以下の課題に取り組んでみるといいかもしれません。
+                            ここまでの STEP で、命令・イベント(マウス入力)・条件分岐・キーボード入力を学んできました。色々な種類の命令やイベントを紹介しましたが、 Processing には他にも様々なリファレンス(命令やイベント)があります。新しい変数やイベントを用いたり、それらを組み合わせることで、より複雑な処理をするプログラムを書くことが出来ます。
                         </p>
+                        <p>
+                            では早速ですが、ここまで学んできた知識を生かして、以下の問題に挑戦してみてください。新しく追加されている変数やイベントがあるため、それらを確認しながらプログラムを完成させてみましょう。
+                        </p>
+                        <h5 class="ui header">【問題1】入力文字の表示</h5>
+                        <p>
+                            ここでは、キーボード入力によってキャンバス内に好きな文字を表示するプログラムを作成します。好きな文字を表示させるためには、Font についての知識が必要になります。
+                        </p>
+                        <p>
+                            まずは、Font ファイルの作成をしましょう。「ツール」タブの「フォント作成」という項目を選んでみてください。以下のような画面が出ると思いますので、画像の通りに進めてください。
+                        </p>
+                        <p>
+                            作成されたファイル(.vlw)をプログラム内で指定することで、そのフォントを使用することができます。(1)~(3)までのプログラムを書いて、実行してみてください。
+                        </p>
+                        <pre>
+                            <code>
+/*変数の宣言*/
+int x = 0;
+int y = 50;
+PFont font;
+/*イベントの宣言*/
+void setup() {
+    size(400, 400);
+    background(0, 0, 0);
+    fill(255, 128);    //オブジェクトを塗りつぶす命令
+
+    font = loadFont("/*(1)作成したフォントファイル名を入力しよう(.vlw)*/");
+    textFont(font, 48);
+}
+
+void draw() {
+}
+
+void keyPressed() {
+    /*(2)text という命令を用いて、ここで宣言してみよう*/
+}
+
+void keyReleased() {
+    x += 35;
+    if (/*(3)条件式 A*/) {     //文字がキャンバス外に出てしまったとき
+    x = 0;
+    y += 50;
+    }
+}                           
+                            </code>
+                        </pre>
+                        <h5 class="ui header">【問題2】3D オブジェクトの作成</h5>
+                        <p>
+                            Processing では、二次元モデルだけではなく三次元モデルも作成して動かすことが出来ます。x キー・y キー・z キーを押すことで回転している箱の大きさを変えるプログラムを作成してください。
+                        </p>
+                        <p>
+                            変数やイベントが多くなってきているので、それぞれがどの役割を果たしているのかしっかりと確認してやると、エラーを減らしながら正確に書くことが出来ます。
+                        </p>
+                        <pre>
+                            <code>
+/*変数の宣言*/
+//それぞれの軸に関して箱を変化させるための変数
+int x = 0;
+int y = 0;
+int z = 0;
+
+//それぞれの軸に関して箱をどのくらいの速度で変化させるか決定する変数
+int speedX = 5;
+int speedY = 5;
+int speedZ = 5;
+
+int angle = 0; //観測する角度を決定する変数
+
+/*イベントの宣言*/
+void setup() {
+    size(400, 400, P3D);
+}
+
+void draw() {
+    background(0, 0, 0);
+
+    translate(width/2, height/2);    //立体の中心を画面中央に移動
+
+    rotateX(radians(angle));    //x 軸について angle 度回転する
+    //rotateY(radians(angle));
+    //rotateZ(radians(angle));
+
+    box(150+x, 150+y, 150+z);
+
+    angle += 3;
+    if (angle >= 360) angle = 0;
+
+    delay(25); //ループを遅らせるための命令、中の数字はミリ秒(1000 = 1 秒)
+}
+void keyPressed() {
+    if (/*(1)条件 A*/) {
+    //(2)x についての処理
+    }
+    if (/*(3)条件 B*/) {
+    //(4)y についての処理
+    }
+    if (/*(5)条件 C*/) {
+    //(6)z についての処理
+    }
+}                              
+                            </code>
+                        </pre>
                     </div>
                     <div class="ui container center aligned">
                         <a class="ui button left attached large" href="./experience_4.html">前へ</a>
@@ -104,6 +210,10 @@
                 </div>
             </div>
     </main>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script>
+
 </body>
 
 </html>
