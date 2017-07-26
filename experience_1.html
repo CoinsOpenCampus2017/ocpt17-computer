@@ -71,7 +71,7 @@
                                         <div class="description">Processingを使ってみよう</div>
                                     </div>
                                 </a>
-                        <a class="step" href="./more-experience.html">
+                        <a class="step" href="./more-experience_1.html">
                                     <i class="level up icon"></i>
                                     <div class="content">
                                         <div class="title">もっと体験</div>
@@ -122,6 +122,59 @@ stroke(255, 0, 0);
 ellipse(200, 200, 300, 300);
                             </code>
                         </pre>
+			<table class="ui definition table">
+			    <thead>
+			        <tr><th></th>
+				<th>引数</th>
+				<th>説明</th>
+			    </tr></thead>
+			    <tbody>
+			        <tr>
+				    <td>size</td>
+				    <td>width, height</td>
+				    <td>幅(width)と高さ(height)を指定してキャンバスを作成します。</td>
+				</tr>
+				<tr>
+				    <td>stroke</td>
+				    <td>R, G, B</td>
+				    <td>3行目の命令で使う線の色をRed(0~255),G(0~255),B(0~255)で指定します。</td>
+				</tr>
+				<tr>
+				    <td>ellipse</td>
+				    <td>x, y, rad_y, rad_x</td>
+				    <td>中心の座標(x, y)と縦の直径(y_rad)、横の直径(x_rad)を指定して楕円を描画します。</td>
+				</tr>
+			</tbody></table>
+			<h3 class="ui header">
+                            サンプルコード
+                        </h3>
+			<p>
+			    background(R, G, B)はキャンバスを指定した色で塗りつぶします。
+			</p>
+			<pre>
+			    <code>
+size(400, 400);
+background(0, 255, 255); 
+			    </code>
+			</pre>
+			<p>
+			    line(start_x, start_y, end_x, end_y)は指定した点から点へ線を引きます。
+			</p>
+			<pre>
+			    <code>
+size(400, 400);
+line(0, 0, 400, 400); 
+			    </code>
+			</pre>
+			<p>
+			  rect(x, y, width, height)は左上の角の座標と幅、高さを指定して長方形を描画します。
+			</p>
+			<pre>
+			    <code>
+size(400, 400);
+rect(100,100,200, 200);
+			    </code>
+			</pre>
                     </div>
                     <div class="ui container center aligned">
                         <a class="ui button left attached large" href="./preparing.html">
@@ -139,7 +192,6 @@ ellipse(200, 200, 300, 300);
     <script>
         hljs.initHighlightingOnLoad();
     </script>
-
 </body>
 
 </html>
