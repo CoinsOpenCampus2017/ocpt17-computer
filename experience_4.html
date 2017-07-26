@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="style/highlite.css">
     <script src="scripts/highlite.js"></script>
     <script src="scripts/highlite-number.js"></script>
-
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./style/semantic.min.css">
@@ -71,7 +70,7 @@
                                 <div class="description">Processingを使ってみよう</div>
                             </div>
                         </a>
-                        <a class="step" href="./more-experience.html">
+                        <a class="step" href="./more-experience_1.html">
                             <i class="level up icon"></i>
                             <div class="content">
                                 <div class="title">もっと体験</div>
@@ -109,9 +108,87 @@
                         <h3 class="ui header">
                             キーボード入力
                         </h3>
+			<p>
+			    以下はキーボード入力に関するシステム変数
+			    (あらかじめ格納される値や使い型が決めれらている変数)です。
+			    変数名はユーザーが自由に決めることができますが、
+			    以下のようなシステム変数とは異なる名前をつける
+			    必要があります。
+			</p>
                         <p>
-                            キーボード入力の本文
+			    <table class="ui striped table">
+			        <thead>
+				    <tr>
+				        <th>名前</th>
+					<th>型</th>
+					<th>説明</th>
+				    </tr>
+				</thead>
+				<tbody>
+				    <tr>
+				        <td>key</td>
+					<td>char</td>
+					<td>押されているキーの文字が格納されている。</td>
+				    </tr>
+				    <tr>
+				        <td>keyPressed</td>
+					<td>boolean</td>
+					<td>キーボードのキーが(どれか一つでも)
+					  押されていればtrue、そうでなければfalse</td>
+				    </tr>				    
+				</tbody>
+			    </table>
                         </p>
+
+			<p>
+			    以下はkeyPressedイベントの使用例です。上記で紹介した変数と
+			    同じ名前ですが変数とイベントは異なるものです。
+			</P>
+			<p>
+			    イベントは呼び出されるタイミングがあらかじめ決められている関数です。
+			    システム変数と同様に同じ名前の関数を作ることはできないので注意
+			    してください。
+			</p>
+			<pre>
+			    <code>
+void keyPressed() {
+  if (key == ‘c’) {  /*キーボードのCキーが押されたとき*/
+    background(255, 255, 255);
+  }
+}
+			    </code>
+			</pre>
+			<h3>
+                            練習問題
+                        </h3>
+                        <p>
+                            Aキーが押されているとき、円が左から右に進むプログラムを作成してみましょう。
+			    以下のプログラムを写し、
+			    コメントアウトされている部分を変えて実行してみてください。
+                        </p>
+			<p>
+			    ヒント: 変数keyPressedとkeyを上手く使いましょう。
+			</p>
+			<pre>
+			    <code>
+/*変数の宣言*/
+float x = 0.0;
+float speed = 1.0;
+
+/*イベントの宣言*/
+voidsetup(){
+  size(400, 400);
+}
+
+voiddraw(){
+  background(200, 200, 200);
+  if(/*この部分の条件式を考える*/){
+    x += speed;
+}
+
+ellipse(x, height/2, 60, 60);
+			    </code>
+			</pre>
                     </div>
                     <div class="ui container center aligned">
                         <a class="ui button left attached large" href="./experience_3.html">前へ</a>
