@@ -31,7 +31,7 @@
     </header>
     <main>
         <div class="ui container">
-            <div class="ui grid">
+            <div class="ui grid mobile reversed stackable centered">
                 <div class="three wide column">
                     <div class="ui container center aligned">
                         <div class="ui vertical pointing menu fluid">
@@ -55,7 +55,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="text ten wide column">
+                <div class="text thirteen wide column">
                     <div class="ui mini fluid three steps">
                         <a class="completed step" href="./index.html">
                                     <i class="info icon"></i>                    
@@ -110,15 +110,12 @@
                             条件分岐
                         </h3>
                         <p>
-                            プログラミングをしていると、
-			    「条件Aが成り立てばXを実行し、成り立たなければYを実行する」というような、
-			    条件によって動作を変えたい場面が登場します。
+                            プログラミングをしていると、 「条件Aが成り立てばXを実行し、成り立たなければYを実行する」というような、 条件によって動作を変えたい場面が登場します。
                         </p>
-			<p>
-			  この条件分岐を行うためにifというキーワードを用いてプログラムを書きます。
-			  先ほど説明したような条件分岐を行うためには、以下のように書く必要があります。
-			</p>
-			<pre>
+                        <p>
+                            この条件分岐を行うためにifというキーワードを用いてプログラムを書きます。 先ほど説明したような条件分岐を行うためには、以下のように書く必要があります。
+                        </p>
+                        <pre>
 			    <code>
 if (条件A) {
   // X の処理
@@ -127,68 +124,60 @@ if (条件A) {
 }
 			    </code>
 			</pre>
-			<p>
-			    Aの部分は条件式と呼ばれる形で描く必要があります。
-			    Aに入る条件式の基本的な形を下表にまとめました。
-			    SやTの部分には変数や計算式や数値を書くことが出来ます。			    
-			</p>
-			<table class="ui striped table">
-			    <thead>
-			        <tr>
-				    <th>条件式</th>
-				    <th>意味</th>
-				</tr>
-			    </thead>
-			    <tbody>
-			        <tr>
-				    <td>S == T</td>
-				    <td>SとTが等しい</td>
-				</tr>
-				<tr>
-				    <td>S != T</td>
-				    <td>SとTが異なる</td>
-				</tr>
-				<tr>
-				    <td>S &#x3C;= T</td>
-				    <td>SはT以下である</td>
-				</tr>
-				<tr>
-				    <td>S &#x3E;= T</td>
-				    <td>SはT以上である</td>
-				</tr>
-				<tr>
-				    <td>S &#x3C; T</td>
-				    <td>SはTより小さい</td>
-				</tr>
-				<tr>
-				    <td>S &#x3E; T</td>
-				    <td>SはTより大きい</td>
-				</tr>
-			    </tbody>
-			</table>
-			<h3>
-			    使用例
-			</h3>
-			<p>
-			    ステップ２で使ったmouseX. mouseYを使って簡単な条件分岐を行ってみます。
-			    mouseXが200より小さいとき、
-			    すなわちキャンバスの左にマウスポインタがある場合に
-			    処理Xを実行するようなプログラムを考えると、次のように書くことが出来ます。
-			</p>
-			<pre>
+                        <p>
+                            Aの部分は条件式と呼ばれる形で描く必要があります。 Aに入る条件式の基本的な形を下表にまとめました。 SやTの部分には変数や計算式や数値を書くことが出来ます。
+                        </p>
+                        <table class="ui striped table">
+                            <thead>
+                                <tr>
+                                    <th>条件式</th>
+                                    <th>意味</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>S == T</td>
+                                    <td>SとTが等しい</td>
+                                </tr>
+                                <tr>
+                                    <td>S != T</td>
+                                    <td>SとTが異なる</td>
+                                </tr>
+                                <tr>
+                                    <td>S &#x3C;= T</td>
+                                    <td>SはT以下である</td>
+                                </tr>
+                                <tr>
+                                    <td>S &#x3E;= T</td>
+                                    <td>SはT以上である</td>
+                                </tr>
+                                <tr>
+                                    <td>S &#x3C; T</td>
+                                    <td>SはTより小さい</td>
+                                </tr>
+                                <tr>
+                                    <td>S &#x3E; T</td>
+                                    <td>SはTより大きい</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h3>
+                            使用例
+                        </h3>
+                        <p>
+                            ステップ２で使ったmouseX. mouseYを使って簡単な条件分岐を行ってみます。 mouseXが200より小さいとき、 すなわちキャンバスの左にマウスポインタがある場合に 処理Xを実行するようなプログラムを考えると、次のように書くことが出来ます。
+                        </p>
+                        <pre>
 			    <code>
 if (mouse &#x3C; 200) {
   stroke(255, 0, 0);  // 線の色を赤にする
 }
 			    </code>
 			</pre>
-			<p>
-			    以上のように、Yの処理が必要ない場合はelse{}の部分を省略することが出来ます。
-			    ゆえに例えば、mouseXが200未満のときのみ線の色を赤にするという処理Xの他に、
-			    mouseXが200以上の時は青にしたい処理Yを加えるときなどは、
-			    次のようにelse{}を挿入すればよいことになります。
-			</p>
-			<pre>
+                        <p>
+                            以上のように、Yの処理が必要ない場合はelse{}の部分を省略することが出来ます。 ゆえに例えば、mouseXが200未満のときのみ線の色を赤にするという処理Xの他に、 mouseXが200以上の時は青にしたい処理Yを加えるときなどは、 次のようにelse{}を挿入すればよいことになります。
+                        </p>
+                        <pre>
 			    <code>
 if (mouse &#x3C; 200) {  /* マウスポインタがキャンバス中央より左に位置しているとき */
   stroke(255, 0, 0);
@@ -197,16 +186,13 @@ if (mouse &#x3C; 200) {  /* マウスポインタがキャンバス中央より�
 }
 			    </code>
 			</pre>
-			<h3>
-			    練習問題
-			</h3>
-			<p>
-			    mouseXの他にmouseYを用いてキャンバスを4分割する条件式を代入し、
-			    それぞれ出力される線の色を変えてみましょう。
-			    ちなみに「AかつB」や「AまたはB」という条件式やさらに条件を増やしたいときは
-			    以下のように書くことができます。
-			</p>
-			<pre>
+                        <h3>
+                            練習問題
+                        </h3>
+                        <p>
+                            mouseXの他にmouseYを用いてキャンバスを4分割する条件式を代入し、 それぞれ出力される線の色を変えてみましょう。 ちなみに「AかつB」や「AまたはB」という条件式やさらに条件を増やしたいときは 以下のように書くことができます。
+                        </p>
+                        <pre>
 			    <code>
 if (A && B) {           /*「&&」はプログラムにおいて「かつ」を意味します*/
   // X の処理
@@ -227,7 +213,6 @@ if (A && B) {           /*「&&」はプログラムにおいて「かつ」を�
                                 </a>
                     </div>
                 </div>
-                <div class="three wide column"></div>
             </div>
         </div>
     </main>
