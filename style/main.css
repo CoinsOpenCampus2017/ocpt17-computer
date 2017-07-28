@@ -6,6 +6,6 @@ div.ui.top.fixed.menu{
     height: 50px;
 }
 
-img{
-    padding-bottom: 25px;
+img + p{
+    padding-top: 25px;
 }
