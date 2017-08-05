@@ -6,6 +6,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="style/main.css" rel="stylesheet">
+    <link rel="stylesheet" href="style/highlite.css">
+    <script src="scripts/highlite.js"></script>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./style/semantic.min.css">
@@ -53,7 +55,7 @@
                         <div class="ui vertical pointing menu fluid">
                             <a href="" class="active item">Q&A</a>
                         </div>
-			<div class="ui vertical pointing menu fluid">
+                        <div class="ui vertical pointing menu fluid">
                             <a href="./glossary.html" class="item">用語集</a>
                         </div>
                     </div>
@@ -62,21 +64,84 @@
                     <div class="ui segment">
                         <h2 class="ui header">
                             Q&A
-                            <div class="sub header">よくある質問はこちらを参照</div>
                         </h2>
-                        <h5 class="ui header">
-                            Q1: このページはQ&Aのテストページですか？
-                        </h5>
+                        <h3 class="ui header">記号はどのように入力するのですか？</h3>
                         <p>
-                            はい、そうです。このページはQ&Aのテストページです。 <br>
-                            ページ構成は今後変更される可能性があります。現在のところ、基本的にクエスチョンはh5のヘッダー、回答はpのベタ打ちになっています。 <br>
-                            もう少し見やすい構成にできればよいと思いますが、完成しないのが最もまずい状況であることに間違いはないので、ひとまずコミット&push masterしておきましょう。
+                            キーボード全体を見渡してみるとそれらの記号が見つかるでしょう. <br> その記号が書かれているキーを押すか，それで入力できなければshiftキーを押しながらそのキーを押すと入力できます．
+                            <br> 以下に例として4つの記号の入力方法を紹介しておきます． <br>
+
+                            <table class="ui celled unstackable table">
+                                <thead>
+                                    <tr>
+                                        <th>記号</th>
+                                        <th>読み方</th>
+                                        <th>入力法</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>(</td>
+                                        <td>始め丸かっこ</td>
+                                        <td>shiftキーを押しながら'8'キーを押す</td>
+                                    </tr>
+                                    <tr>
+                                        <td>)</td>
+                                        <td>終わり丸かっこ</td>
+                                        <td>shiftキーを押しながら'9'キーを押す</td>
+                                    </tr>
+                                    <tr>
+                                        <td>,</td>
+                                        <td>カンマ</td>
+                                        <td>'M'キーの右どなりのキーを押す</td>
+                                    </tr>
+                                    <tr>
+                                        <td>;</td>
+                                        <td>セミコロン</td>
+                                        <td>'L'キーの右どなりのキーを押す</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </p>
+                        <h3 class="ui header">再生ボタンを押しても図形が表示されません</h3>
+                        <p>
+                            プログラムに間違いがあり，エラーが発生していると考えられます. <br> 画面の下部にエラーの内容が表示されているかもしれません．参考にして修正してみましょう. <br> 誤字脱字はエラーのもとになります．例えば，次の2行目のようにセミコロンがないとエラーとなってしまいます．
+                            <pre>
+                                <code>
+size(400, 400);
+stroke(255, 0, 0)
+ellipse(200, 200, 300, 300);
+                                </code>
+                            </pre>
+                        </p>
+                        <h3 class="ui header">「命令」とは何ですか？</h3>
+                        <p>
+                            コンピュータに行って欲しいことを言うには，Processingでは「size(400, 400);」のような文を書けばいいのです．これを「命令」と言います．命令の集まりが「プログラム」です．
+                        </p>
+                        <h3 class="ui header">「変数の宣言」とは何ですか？</h3>
+                        <p>
+                            プログラムである変数を使うには，あらかじめコンピュータにその変数を使うことを明示しておく必要があります．このことを「変数を宣言する」といいます．
+                        </p>
+                        <h3 class="ui header">Processingでは「=」と「==」という記号（演算子）が使われています．形も意味も似ているように見えますが，どう違うのでしょうか？</h3>
+                        <p>
+                            「=」は「代入」であり，右辺の値を左辺の変数に代入することを意味します．数学における意味とは少し異なり，「x = x + 1;」というような書き方にもなんら問題はありません. <br>
+                            一方「==」は「等価」を意味し，左辺と右辺が等しければ「true（真）」となります．こちらの方が数学における意味に近いです．<br>
+                            if文の条件式などで「=」と「==」を間違えると予期せぬ結果となるため，注意しましょう．
+                        </p>
+                        <h3 class="ui header">STEP2以降では，size()はsetup(){...}の内部に書かれています．しかし，思い出してみるとSTEP1ではsize()は外部に書かれていました．これはどういうことなのでしょうか？</h3>
+                        <p>
+                            実はProcessingには2つのモードがあり，「Staticモード」と呼ばれるものと「Activeモード」と呼ばれるものがあります．<br>
+                            STEP1ではStaticモードを用いており，静止画を描くことができました．<br>
+                            STEP2以降ではActiveモードを用いており，イベントを用いることで動きのある画像を描くことができるようになっています．<br>
+                            この2つのモードを混合してはいけません．例えば，STEP2以降でsize()をsetup(){...}の外部に書くと混合となり，エラーとなります．
                         </p>
                     </div>
                 </div>
             </div>
         </div>
     </main>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script>
 </body>
 
 </html>
